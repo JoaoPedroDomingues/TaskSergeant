@@ -1,4 +1,0 @@
-Native
-	runCommand
-UserGenerated
-	helloWorld
