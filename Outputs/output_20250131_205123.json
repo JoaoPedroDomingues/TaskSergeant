@@ -1,0 +1,28 @@
+{
+  "version": "",
+  "globalResult": "OK",
+  "date": "31/01/2025 20:51:23",
+  "totalTasks": 1,
+  "tasksExecuted": 0,
+  "successfulAssertions": 0,
+  "failedAssertions": 0,
+  "otherResults": 0,
+  "slots": [
+    {
+      "id": "what",
+      "repeatable": 1,
+      "executed": 0,
+      "task": {
+        "value": null,
+        "assertionType": null,
+        "description": "parent hello",
+        "expectedValue": null,
+        "categories": [
+          "UserGenerated",
+          "helloWorld"
+        ]
+      }
+    }
+  ],
+  "name": ""
+}

@@ -1,0 +1,24 @@
+{
+  "name": "",
+  "version": "",
+  "timeout": 60,
+  "pipeline": [],
+  "categories": [
+    {
+      "name": "Native",
+      "categories": [],
+      "tasks": []
+    },
+    {
+      "name": "UserGenerated",
+      "categories": [
+        {
+          "name": "UserGenerated2",
+          "categories": [],
+          "tasks": []
+        }
+      ],
+      "tasks": []
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "pipeline": [
+    {
+      "id": "startParamiko",
+      "paths": [
+        {
+          "nextSlotId": "enterDirectory",
+          "key": true
+        }
+      ]
+    },
+    {
+      "id": "enterDirectory",
+      "paths": [
+        {
+          "nextSlotId": "mount",
+          "key": true
+        }
+      ]
+    },
+    {
+      "id": "mount",
+      "paths": [
+        {
+          "nextSlotId": "enterRepo",
+          "key": true
+        }
+      ]
+    },
+    {
+      "id": "enterRepo",
+      "paths": [
+        {
+          "nextSlotId": "runTests",
+          "key": true
+        }
+      ]
+    },
+    {
+      "id": "runTests",
+      "paths": [
+        {
+          "nextSlotId": "getResultDUT",
+          "key": true
+        }
+      ]
+    },
+    {
+      "id": "getResultDUT",
+      "paths": [
+        {
+          "nextSlotId": "getResultProbe",
+          "key": true
+        }
+      ]
+    },
+    {
+      "id": "getResultProbe",
+      "paths": [
+        {
+          "nextSlotId": "saveLocal",
+          "key": true
+        }
+      ]
+    },
+    {
+      "id": "saveLocal",
+      "paths": [
+        {
+          "nextSlotId": "saveProbe",
+          "key": true
+        }
+      ]
+    },
+    {
+      "id": "saveProbe",
+      "paths": [
+        {
+          "nextSlotId": "saveDUT",
+          "key": true
+        }
+      ]
+    }
+  ]
+}

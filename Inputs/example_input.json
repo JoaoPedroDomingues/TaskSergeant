@@ -1,0 +1,19 @@
+{
+  "name": "",
+  "version": "",
+  "timeout": 60,
+  "pipeline": [],
+  "categories": [
+    {
+      "name": "UserGenerated",
+      "categories": [],
+      "tasks": [
+        {
+          "command": "helloWorld",
+          "repeatable": 1,
+          "description": "description"
+        }
+      ]
+    }
+  ]
+}
