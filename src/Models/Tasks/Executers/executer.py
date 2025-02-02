@@ -4,7 +4,7 @@ from ....Utility.printer import Printer
 ##
 # @class Executer
 #
-# @brief This class is responsible for the execution of command-lines, resorting to the subprocess module \n
+# @brief This class is responsible for the execution of commands, resorting to the subprocess module \n
 # It deals with Exceptions and outputs debug messages that are visible if the debug is active \n
 # This class is aimed at version of Python 3.x \n
 # This class is a Singleton. \n
@@ -46,15 +46,15 @@ class Executer():
 
     ##
     # @param self Executer instance
-    # @param caller Command instance that called this function
-    # @param command The command-line that is be executed
+    # @param caller Task instance that called this function
+    # @param command The command that is be executed
     #
     # @return The result of the subprocess call, as a string
     # @return None, if the subprocess call fails/raises an exception
     #
-    # @brief Executes the received command-line, resorting to the subprocess module. \n
+    # @brief Executes the received command, resorting to the subprocess module. \n
     # Exceptions thrown by the subprocess call are treated here, where a debug message is requested. \n
-    # Further procedures upon an Exception happening are to be treated at a Command-level, 
+    # Further procedures upon an Exception happening are to be treated at a Task-level, 
     # by validating whether or not the return value of this function is None.
     def executeCommand(self, caller, command):
         result = None

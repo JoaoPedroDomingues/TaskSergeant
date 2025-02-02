@@ -6,7 +6,7 @@
 
 _TaskSergeant_ started as a project to task various remote Linux Systems in a factory floor and evolved to be a generic modular task runing tool.
 
-In short, it is a tool to run multiple user-defined Python scripts (_Commands_) in an user-defined hierarchy (_Pipeline_). Each _Command_ can receive inputs and have it's output be tested in an _Assertion_.
+In short, it is a tool to run multiple user-defined Python scripts (_Tasks_) in an user-defined hierarchy (_Pipeline_). Each _Task_ can receive inputs and have it's output be tested in an _Assertion_.
 
 It's original intent went as follows:
 
@@ -32,9 +32,9 @@ This is a console application that helps you build the input file for _TaskSerge
 
 Here, you define:
 
-- Which _Commands_ will be used;
-- Which _Assertion_ goes with each _Command_;
-- The Hierarchy (_Pipeline_) between _Commands_ and rules of execution.
+- Which _Tasks_ will be used;
+- Which _Assertion_ goes with each _Task_;
+- The Hierarchy (_Pipeline_) between _Tasks_ and rules of execution.
 
 It generates an _autosaved.json_ file within the _Inputs_ folder with the changes as you go, so you can see exactly what you're doing as you tinker with the _TaskBuilder_.
 

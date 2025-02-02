@@ -101,8 +101,8 @@ class Pipeline():
     # @brief Adds an new instance of Slot to the Pipeline's list of Slots with the received Task instance. \n
     # Rules out Tasks with no Command.
     def addTask(self, task, id, repeatable=1):
-        if type(task.command) == type(None):
-            Printer.getInstance().printMessage("Task with category path %s has no valid Command associated and will be excluded from the pipeline!" %(task.data["categories"]), 1)
+        if type(task.task) == type(None):
+            Printer.getInstance().printMessage("Task with category path %s has no valid Task associated and will be excluded from the pipeline!" %(task.data["categories"]), 1)
             return
         Printer.getInstance().printMessage("Added Slot with [ID] %s and [DESCRIPTION] %s" %(id, task.data["description"]))
         self.__slots.append(Slot(task, id, repeatable))

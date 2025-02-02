@@ -1,5 +1,5 @@
 from ..printer import Printer
-from ...Models.Commands.Native.runCommand import RunCommand
+from ...Models.Tasks.Native.runCommand import RunCommand
 from datetime import datetime
 
 import json

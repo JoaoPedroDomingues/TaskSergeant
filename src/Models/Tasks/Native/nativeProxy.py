@@ -6,6 +6,6 @@ class NativeProxy(SuperProxy):
     def id():
         return "Native"
 
-    commands = {}
+    tasks = {}
 
     proxies = {}

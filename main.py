@@ -6,18 +6,18 @@ from src.Utility.InputInterpreter.inputInterpreter import process_input
 from src.Utility.OutputGenerator.resultInterpreter import generate_output
 import sys
 import os
-from src.Models.Commands.Executers.executerImporter import Executer
-from src.Models.Commands.superProxy import SuperProxy
+from src.Models.Tasks.Executers.executerImporter import Executer
+from src.Models.Tasks.superProxy import SuperProxy
 from copy import deepcopy
 
 # ------------------------------------------------------------------------------
 
 
 def __genTask(taskInfo, path, pipeline):
-    if taskInfo.get("command") is None:
+    if taskInfo.get("task") is None:
         return
     newPath = list(path)
-    newPath.append(taskInfo.get("command"))
+    newPath.append(taskInfo.get("task"))
 
     builder = TaskBuilder()
 
@@ -99,7 +99,7 @@ try:
 except Exception:
     pass
 
-# Generate the system's mapping of the available Commands and Assertions
+# Generate the system's mapping of the available Tasks and Assertions
 SuperProxy().genProxy()
 
 # Parse input file to dict

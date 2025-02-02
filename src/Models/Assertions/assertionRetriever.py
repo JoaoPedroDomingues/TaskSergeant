@@ -49,7 +49,7 @@ class AssertionRetriever():
 
         for _, name, _ in pkgutil.iter_modules([pkgpath]):
             try:
-                # We import the module using it's full path: "src.Models.Commands.superProxy"
+                # We import the module using it's full path: "src.Models.Tasks.superProxy"
                 module = importlib.import_module("%s.%s" %(__package__, name))
                 # class name = module name with first character capitalized
                 className = name[0].upper() + name[1:]
@@ -57,10 +57,10 @@ class AssertionRetriever():
                 class_ = getattr(module, className)
                 # Creating an instance of the class
                 instance = class_()
-                # Skip the SuperCommands
+                # Skip the SuperTasks
                 if (instance.id() == SuperAssertion.id()):
                     continue
-                # We add to the current Proxy the mapping to the Command
+                # We add to the current Proxy the mapping to the Task
                 AssertionRetriever.__assertions[instance.id()] = type(instance)
             except Exception:
                 pass

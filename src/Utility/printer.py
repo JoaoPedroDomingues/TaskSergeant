@@ -59,8 +59,8 @@ class Printer():
         for cat in task.data["categories"]:
             categories += "[" + cat + "]"
 
-        # If the assertion did not retrieve a boolean it is because a DefaultAssertion has been used (which returns the Command's result directly)
-        # To remove false negatives (where the Command's result is itself a boolean, which may indicate the Assertion used was not the DefaultAssertion), we also check for the expectedValue being None
+        # If the assertion did not retrieve a boolean it is because a DefaultAssertion has been used (which returns the Task's result directly)
+        # To remove false negatives (where the Task's result is itself a boolean, which may indicate the Assertion used was not the DefaultAssertion), we also check for the expectedValue being None
         # If either of those happen, the Task ran with a DefaultAssertion
         # The last validation of the first line is triggered when an expectedValue is provided and the DefaultAssertion's result is bool
         # TODO: There are problems with this validation... There are cases where a Result is confused for an Assertion, find a way to treat those
@@ -74,21 +74,21 @@ class Printer():
             # We print both the actual and expected values and types, to help determine what went wrong
             print("[ASSERTION]%s - %s : NOK" %
                   (categories, task.data["description"]))
-            commandResult = task.data["commandResult"]
-            if (type(commandResult) == str or type(commandResult) == unicode) and len(commandResult) > 500:
-                commandResult = commandResult[0:500] + "\n\t[Result continues for longer ...]"
-            print("\tExpected:\n\t\tValue: %s\n\t\tType: %s\n\tActual:\n\t\tValue: %s\n\t\tType: %s\n\tAssertion Type: %s" %(str(task.data["expectedValue"]), type(task.data["expectedValue"]), commandResult, type(task.data["commandResult"]), task.data["assertionType"]))
+            taskResult = task.data["taskResult"]
+            if (type(taskResult) == str or type(taskResult) == unicode) and len(taskResult) > 500:
+                taskResult = taskResult[0:500] + "\n\t[Result continues for longer ...]"
+            print("\tExpected:\n\t\tValue: %s\n\t\tType: %s\n\tActual:\n\t\tValue: %s\n\t\tType: %s\n\tAssertion Type: %s" %(str(task.data["expectedValue"]), type(task.data["expectedValue"]), taskResult, type(task.data["taskResult"]), task.data["assertionType"]))
 
         print("\n")
 
     ##
     # @param self Printer instance
-    # @param commandId A Command's identifier
+    # @param taskId A Task's identifier
     # @param exceptionMessage An exception's message
     #
     # @brief Custom output for subprocess.CalledProcessError exceptions
-    def subprocessException(self, commandId, exceptionMessage):
-        self.printMessage("An exception occured when executing a command with id '%s'.\nException Message: %s" %(commandId, exceptionMessage), 3)
+    def subprocessException(self, taskId, exceptionMessage):
+        self.printMessage("An exception occured when executing a task with id '%s'.\nException Message: %s" %(taskId, exceptionMessage), 3)
 
     ##
     # @param self Printer instance

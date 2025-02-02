@@ -19,7 +19,7 @@ class SuperAssertion():
     # @pure
     #
     # @param self The Assertion's instance
-    # @param actual The Command's result
+    # @param actual The Task's result
     # @param expected The expected expression
     #
     # @brief Executes the Assertion's code
@@ -40,7 +40,7 @@ class SuperAssertion():
 
     ##
     # @param self The Assertion's instance
-    # @param actual The Command's result
+    # @param actual The Task's result
     # @param expected The expected expression
     #
     # @return bool, True if both are of the same type, False otherwise

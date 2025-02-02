@@ -1,11 +1,11 @@
 ##
 # @param proxy The Proxy that maps the current layer
-# @param categories A list that contains the path to the desired Command
+# @param categories A list that contains the path to the desired Task
 #
-# @return The Command instance defined by the path
+# @return The Task instance defined by the path
 #
-# @brief Processes the category list and either calls itself recursively with a new Proxy or returns the Command specified by the path.
-def retrieveCommand(proxy, categories):
+# @brief Processes the category list and either calls itself recursively with a new Proxy or returns the Task specified by the path.
+def retrieveTask(proxy, categories):
     (category, subCategories) = __processCategories(categories)
 
     if subCategories:
@@ -14,18 +14,18 @@ def retrieveCommand(proxy, categories):
         if proxy is None: # If that default task area happens, this ceases to exist
             return None
 
-        return retrieveCommand(proxy(), subCategories)
+        return retrieveTask(proxy(), subCategories)
 
     else:
-        command = proxy.commands.get(category, None) # This may be changed, where we create a default task area that debugs the input
+        task = proxy.tasks.get(category, None) # This may be changed, where we create a default task area that debugs the input
 
-        if command is None: # If that default task area happens, this ceases to exist
+        if task is None: # If that default task area happens, this ceases to exist
             return None
 
-        return command()
+        return task()
 
 ##
-# @param categories A list that contains the path to the desired Command
+# @param categories A list that contains the path to the desired Task
 #
 # @return A Tuple containing the head and tail of the categories list
 #

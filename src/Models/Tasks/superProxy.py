@@ -1,4 +1,4 @@
-from .superCommand import SuperCommand
+from .superTask import SuperTask
 from ...Utility.printer import Printer
 
 ##
@@ -8,8 +8,8 @@ from ...Utility.printer import Printer
 class SuperProxy():
 
     ##
-    # @brief A dict that maps the current layer's Commands to their respective identifiers
-    commands = {}
+    # @brief A dict that maps the current layer's Tasks to their respective identifiers
+    tasks = {}
 
     ##
     # @brief A dict that maps the current layer's sublayers' Proxies to their respective identifiers
@@ -33,10 +33,10 @@ class SuperProxy():
         if pathNow[0] == '/':
             pathNow = pathNow[1:]
 
-        result = {"commands": [], "categories": {}}
+        result = {"tasks": [], "categories": {}}
 
-        for command in current.commands:
-            result["commands"].append(command)
+        for task in current.tasks:
+            result["tasks"].append(task)
 
         for proxy in current.proxies:
             nextPath = "%s/%s" %(pathNow, proxy)
@@ -50,15 +50,15 @@ class SuperProxy():
         import pkgutil, os.path
         import inspect
 
-        # self.__class__ = <class 'src.Models.Commands.superProxy.SuperProxy'>
-        # pkgpath = "{path to your project folder}\TaskSergeant\src\Models\Command"
+        # self.__class__ = <class 'src.Models.Tasks.superProxy.SuperProxy'>
+        # pkgpath = "{path to your project folder}\TaskSergeant\src\Models\Task"
         pkgpath = os.path.dirname(inspect.getfile(self.__class__))
 
-        # currentFile = "src.Models.Commands.superProxy"
+        # currentFile = "src.Models.Tasks.superProxy"
         currentFile = self.__module__.split(".")
         del currentFile[-1]
 
-        # currentPackage = "src.Models.Commands"
+        # currentPackage = "src.Models.Tasks"
         currentPackage = ".".join(currentFile)
 
         # for each module in the current package
@@ -70,7 +70,7 @@ class SuperProxy():
                     if subIsPkg or "Proxy" not in subName:  # We skip packages and files without Proxy in the name
                         continue
                     try:
-                        # We import the module using it's full path: "src.Models.Commands.superProxy"
+                        # We import the module using it's full path: "src.Models.Tasks.superProxy"
                         module = importlib.import_module("%s.%s.%s" %(currentPackage, name, subName))
                         # class name = module name with first character capitalized
                         className = subName[0].upper() + subName[1:]
@@ -86,11 +86,11 @@ class SuperProxy():
                     except Exception as e:
                         Printer.getInstance().printMessage("Error Processing Proxy %s" %(name), 2)
                         Printer.getInstance().printMessage(e, 2)
-            else: # If it is NOT a package, we deal with files, looking for Commands
+            else: # If it is NOT a package, we deal with files, looking for Tasks
                 if isPkg or "Proxy" in name or "Retriever" in name:  # We skip packages and files with Proxy/Retriever in the name
                     continue
                 try:
-                    # We import the module using it's full path: "src.Models.Commands.superProxy"
+                    # We import the module using it's full path: "src.Models.Tasks.superProxy"
                     module = importlib.import_module("%s.%s" %(currentPackage, name))
                     # class name = module name with first character capitalized
                     className = name[0].upper() + name[1:]
@@ -98,12 +98,12 @@ class SuperProxy():
                     class_ = getattr(module, className)
                     # Creating an instance of the class
                     instance = class_()
-                    # Skip the SuperCommands
-                    if (instance.id() == SuperCommand.id()):
+                    # Skip the SuperTasks
+                    if (instance.id() == SuperTask.id()):
                         continue
-                    # We add to the current Proxy the mapping to the Command
-                    self.__class__.commands[instance.id()] = type(instance)
-                    Printer.getInstance().printMessage("Processed Command %s" %(name))
+                    # We add to the current Proxy the mapping to the Task
+                    self.__class__.tasks[instance.id()] = type(instance)
+                    Printer.getInstance().printMessage("Processed Task %s" %(name))
                 except Exception as e:
-                    Printer.getInstance().printMessage("Error Processing Command %s" %(name), 2)
+                    Printer.getInstance().printMessage("Error Processing Task %s" %(name), 2)
                     Printer.getInstance().printMessage(str(e), 2)

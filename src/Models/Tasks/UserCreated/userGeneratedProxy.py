@@ -6,6 +6,6 @@ class UserGeneratedProxy(SuperProxy):
     def id():
         return "UserGenerated"
 
-    commands = {}
+    tasks = {}
 
     proxies = {}

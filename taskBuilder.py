@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 from copy import deepcopy
 from src.Models.Assertions.assertionRetriever import AssertionRetriever
-from src.Models.Commands.superProxy import SuperProxy
+from src.Models.Tasks.superProxy import SuperProxy
 from src.Utility.printer import Printer
 
 Printer(True, True)
@@ -130,7 +130,7 @@ def addTask():
     newTask = {}
     
     newTask["category"] = __selectTaskCategory()
-    newTask["command"] = __selectTaskFromCategory(newTask["category"])
+    newTask["task"] = __selectTaskFromCategory(newTask["category"])
     newTask["repeatable"] = __addRepeatable()
     newTask["description"] = printer.getInput("Insert the task's description (required)", True)
 
@@ -312,9 +312,9 @@ allAssertions = AssertionRetriever.genDict()
 
 def __addCategories(category, name):
     for subCategory in category:
-        if subCategory == "commands":
-            for command in category[subCategory]:
-                allCategories.append((name, command))
+        if subCategory == "tasks":
+            for task in category[subCategory]:
+                allCategories.append((name, task))
             continue
         else:
             __addCategories(category[subCategory], subCategory)
