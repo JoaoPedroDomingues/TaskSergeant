@@ -5,5 +5,5 @@ from ..superCommand import *
 class UserGeneratedCommand(SuperCommand):
 
     @abstractmethod
-    def execute_command(self, value):
+    def execute_task(self, value):
         pass

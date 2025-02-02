@@ -1,0 +1,28 @@
+{
+  "name": "",
+  "version": "02/02/2025 12:59:22",
+  "timeout": 60,
+  "pipeline": [],
+  "categories": [
+    {
+      "name": "Native",
+      "categories": [],
+      "tasks": []
+    },
+    {
+      "name": "UserGenerated",
+      "categories": [],
+      "tasks": [
+        {
+          "command": "commitChanges",
+          "repeatable": 1,
+          "description": "Commits the changes and pushes them to main",
+          "value": "C:\\Users\\joaop\\Documents\\GitHub\\Python-Test-Sargent",
+          "assertionType": "=",
+          "expected": true,
+          "id": "task_001"
+        }
+      ]
+    }
+  ]
+}

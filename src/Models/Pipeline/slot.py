@@ -89,6 +89,8 @@ class Slot():
         except Exception as e:
             Printer.getInstance().printMessage(e, 1)
             nextSlot = self.default
+        
+        # TODO: Check this condition
         # If there is no path for the task result, but there was no expected value,
         # it's because the task consisted in a [RESULT] and not in a [ASSERTION]
         #if nextSlot == None:

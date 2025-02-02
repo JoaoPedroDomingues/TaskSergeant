@@ -30,7 +30,7 @@ class SuperCommand():
     #
     # @brief Executes the Command's code.
     @abstractmethod
-    def execute_command(self, value):
+    def execute_task(self, value):
         Printer.getInstance().printMessage("This has been executed on %s" %(self.id()))
 
     ##
@@ -41,5 +41,5 @@ class SuperCommand():
     # @return None if the execution failed
     #
     # @brief Sends it self and the command line to the Executer, where it will be dealt with.
-    def execute(self, command):
+    def execute_command(self, command):
         return Executer.getInstance().executeCommand(self, command)

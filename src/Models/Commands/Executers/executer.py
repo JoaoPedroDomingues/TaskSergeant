@@ -58,7 +58,7 @@ class Executer():
     # by validating whether or not the return value of this function is None.
     def executeCommand(self, caller, command):
         result = None
-        
+        Printer.getInstance().printMessage("Running command -> %s" %(command))
         try:
             result = subprocess.check_output(command, shell=True, timeout=self.__timeout).decode("utf-8")
         except subprocess.CalledProcessError as message:

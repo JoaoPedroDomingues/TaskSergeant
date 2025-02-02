@@ -20,22 +20,16 @@ class Pipeline():
     # @brief Executes the Slots, one by one. calling an auxiliary function when it detects the beginning of an hierarchy. \n
     # At the end of the execution, calls a function to generate stats.
     def execute(self):
-        Printer.getInstance().printMessage("Pipeline execution started!!\n\n\n")
+        Printer.getInstance().printMessage("Pipeline execution started!!\n------------------")
         start_time = time.time() # Starts counting execution time
 
         for slot in self.__slots:
             # The beginning of an hierarchy is detected when the current Slot doesn't have a parent and has an ID non-None
             if not slot.hasParent:
-                if not slot.id is None:
-                    Printer.getInstance().printMessage("A new hierarchy begins...")
-                    self.__chainExecution(slot)
-                    Printer.getInstance().printMessage("...The hierarchy has ended")
-                    Printer.getInstance().printMessage("------------------------------")
-                else:
-                    slot.execute()
+                self.__chainExecution(slot)
 
-        Printer.getInstance().printMessage("Pipeline execution ended!!\n\n\n")
-        Printer.getInstance().printPipelineStats("--------------------\nPipeline execution time: %s" %(time.time() - start_time))
+        Printer.getInstance().printMessage("Pipeline execution ended!!")
+        Printer.getInstance().printPipelineStats("\n--------------------\nPipeline execution time: %s" %(time.time() - start_time))
 
         return self.asOutput()
 

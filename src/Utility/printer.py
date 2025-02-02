@@ -88,13 +88,7 @@ class Printer():
     #
     # @brief Custom output for subprocess.CalledProcessError exceptions
     def subprocessException(self, commandId, exceptionMessage):
-        if not self.__debugFlag:
-            return
-
-        msg = "An exception occured when executing a command with id '%s'. This exception has been dealt with locally.\n\t\tException Message: %s" %(commandId, exceptionMessage)
-
-        self.printMessage(msg, 3)
-        pass
+        self.printMessage("An exception occured when executing a command with id '%s'.\nException Message: %s" %(commandId, exceptionMessage), 3)
 
     ##
     # @param self Printer instance
@@ -119,9 +113,21 @@ class Printer():
         else:
             msgType = "[OTHER]"
 
-        # Comment the line below if you want to occult every message that isn't task-result related
         for line in message.split('\n'):
             print("%-11s %s" % (msgType, line))
+
+    def getInput(self, message, mandatory=False):
+        formattedMessage = "%-11s %s --> " % ("[PROMPT]", message)
+        
+        value = input(formattedMessage).strip()
+        
+        if mandatory is False:
+            return value
+        
+        while not value:
+            value = input(formattedMessage).strip()
+
+        return value
 
     def printPipelineStats(self, message):
         if not self.__resultFlag:

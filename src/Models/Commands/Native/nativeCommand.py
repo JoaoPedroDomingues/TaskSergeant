@@ -5,5 +5,5 @@ from ..superCommand import *  # This warning is a false-positive, please ignore
 class NativeCommand(SuperCommand):
 
     @abstractmethod
-    def execute_command(self, value):
+    def execute_task(self, value):
         pass

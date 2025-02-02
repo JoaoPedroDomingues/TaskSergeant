@@ -37,14 +37,15 @@ class Task():
 
         start_time = time.time() # Starts counting the execution time of the task (command + assertion)
 
-        self.data["commandResult"] = self.command.execute_command(self.data["value"])
+        self.data["commandResult"] = self.command.execute_task(self.data["value"])
         self.data["assertionResult"] = self.assertion.execute_assertion(self.data["commandResult"], self.data["expectedValue"])
 
         # Stores the task's execution time
         executionTime = time.time() - start_time
         self.data["executionTime"] = executionTime
 
-        Printer.getInstance().printMessage(" vvv Task execution time: %s vvv" %(executionTime))
+        Printer.getInstance().printMessage(f"Task execution time: {executionTime * 1000:.3f} ms")
+
         Printer.getInstance().processTask(self)
 
         return self.data["assertionResult"]
