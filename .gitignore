@@ -159,5 +159,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# TaskSergeant Outputs
+# TaskSergeant Outputs & Input
 Outputs/
+Inputs/
+p2pInputs/
+p2pOutputs/
