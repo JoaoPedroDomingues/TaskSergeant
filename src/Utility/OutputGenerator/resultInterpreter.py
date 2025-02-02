@@ -12,7 +12,7 @@ def generate_output(pipeline):
     Printer.getInstance().printMessage("Generating output file in ./Outputs/%s.json" %(filename), 1)
 
     try:
-        RunCommand().execute_task("if not exist Outputs mkdir Outputs")
+        RunCommand().executeTask("if not exist Outputs mkdir Outputs")
 
         f = open("./Outputs/%s.json" %(filename), "w+")
         f.write(result)

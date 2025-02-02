@@ -10,5 +10,5 @@ class HierarchyHead(NativeTask):
     def id():
         return "hierarchyHead"
 
-    def execute_task(self, value):
+    def executeTask(self, value):
         return value

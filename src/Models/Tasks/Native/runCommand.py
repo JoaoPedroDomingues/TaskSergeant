@@ -10,5 +10,5 @@ class RunCommand(NativeTask):
     def id():
         return "runCommand"
 
-    def execute_task(self, value):
+    def executeTask(self, value):
         return self.executeCommand(value)

@@ -1,4 +1,5 @@
 import json
+import sys
 from datetime import datetime
 from copy import deepcopy
 from src.Models.Assertions.assertionRetriever import AssertionRetriever
@@ -131,8 +132,8 @@ def addTask():
     
     newTask["category"] = __selectTaskCategory()
     newTask["task"] = __selectTaskFromCategory(newTask["category"])
-    newTask["repeatable"] = __addRepeatable()
     newTask["description"] = printer.getInput("Insert the task's description (required)", True)
+    newTask["repeatable"] = __addRepeatable()
 
     if (value := __addTaskInput()) is not None:
         newTask["value"] = value

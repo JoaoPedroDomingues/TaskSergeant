@@ -30,7 +30,7 @@ class SuperTask():
     #
     # @brief Executes the Task's code.
     @abstractmethod
-    def execute_task(self, value):
+    def executeTask(self, value, inheritedResult):
         Printer.getInstance().printMessage("This has been executed on %s" %(self.id()))
 
     ##

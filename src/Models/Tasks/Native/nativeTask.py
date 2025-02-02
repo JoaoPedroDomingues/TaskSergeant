@@ -5,5 +5,5 @@ from ..superTask import *  # This warning is a false-positive, please ignore
 class NativeTask(SuperTask):
 
     @abstractmethod
-    def execute_task(self, value):
+    def executeTask(self, value):
         pass

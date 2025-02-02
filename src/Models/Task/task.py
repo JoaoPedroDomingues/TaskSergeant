@@ -37,7 +37,7 @@ class Task():
 
         start_time = time.time() # Starts counting the execution time of the task (task + assertion)
 
-        self.data["taskResult"] = self.task.execute_task(self.data["value"])
+        self.data["taskResult"] = self.task.executeTask(self.data["value"])
         self.data["assertionResult"] = self.assertion.execute_assertion(self.data["taskResult"], self.data["expectedValue"])
 
         # Stores the task's execution time

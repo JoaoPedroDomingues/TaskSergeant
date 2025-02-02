@@ -1,8 +1,7 @@
 from src.Models.Task.taskBuilder import TaskBuilder
 from src.Models.Pipeline.pipeline import Pipeline
-from src.Models.Pipeline.slot import Slot
 from src.Utility.printer import Printer
-from src.Utility.InputInterpreter.inputInterpreter import process_input
+from src.Utility.InputInterpreter.inputInterpreter import processInput
 from src.Utility.OutputGenerator.resultInterpreter import generate_output
 import sys
 import os
@@ -103,7 +102,7 @@ except Exception:
 SuperProxy().genProxy()
 
 # Parse input file to dict
-model = process_input(inputFile)
+model = processInput(inputFile)
 
 version = model.get("version", "-")
 name = model.get("name", "-")

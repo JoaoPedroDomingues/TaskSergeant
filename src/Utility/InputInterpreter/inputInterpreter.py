@@ -1,5 +1,4 @@
 import os
-import sys
 from .jsonInterpreter import JsonInterpreter
 from ..printer import Printer
 
@@ -8,7 +7,7 @@ __interpreters = {
     ".json" : JsonInterpreter,
 }
 
-def process_input(inputName):
+def processInput(inputName):
 
     _, fileExtension = os.path.splitext(inputName)
 

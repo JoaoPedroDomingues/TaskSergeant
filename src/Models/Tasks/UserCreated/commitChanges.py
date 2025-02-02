@@ -10,7 +10,7 @@ class CommitChanges(UserGeneratedTask):
     def id():
         return "commitChanges"
 
-    def execute_task(self, value):
+    def executeTask(self, value):
         printer = Printer.getInstance()
 
         self.executeCommand("cd %s" %(value))

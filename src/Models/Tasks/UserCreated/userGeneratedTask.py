@@ -5,5 +5,5 @@ from ..superTask import *
 class UserGeneratedTask(SuperTask):
 
     @abstractmethod
-    def execute_task(self, value):
+    def executeTask(self, value):
         pass
