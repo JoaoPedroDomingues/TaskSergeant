@@ -78,18 +78,32 @@ resultFlag = False
 inputFile = ""
 
 # Process arguments
-for arg in sys.argv:
-    if arg == "-d": # -d flag for full log
-        debugFlag = True
-        resultFlag = True
-    elif arg == "-r": # -r flag for result-only log
-        resultFlag = True
-    else:
-        inputFile = arg
+if len(sys.argv) > 1:
+    for arg in sys.argv:
+        if arg == "-d": # -d flag for full log
+            debugFlag = True
+            resultFlag = True
+        elif arg == "-r": # -r flag for result-only log
+            resultFlag = True
+        elif arg != "main.py":
+            inputFile = arg
 
 # Create Printer instance
 Printer(resultFlag, debugFlag)
 Printer.getInstance().printMessage("A Printer instance has been created...")
+
+if inputFile == "":
+    try:
+        files = os.listdir("Inputs")
+        for count, assertion in enumerate(files):
+            print("%s - %s" %(count, assertion))
+        inputFile = files[int(Printer.getInstance().getInput("Choose a file"))]
+    except FileNotFoundError:
+        Printer.getInstance().printMessage("Error: Folder not found!", 2)   
+    except PermissionError:
+        Printer.getInstance().printMessage("Error: Permission denied!", 2)
+    except:
+        Printer.getInstance().printMessage("Something went wrong!", 2)
 
 # Relocate the Working Directory at run time
 try:
