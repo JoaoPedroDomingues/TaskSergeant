@@ -1,5 +1,4 @@
 import json
-import sys
 from datetime import datetime
 from copy import deepcopy
 from src.Models.Assertions.assertionRetriever import AssertionRetriever

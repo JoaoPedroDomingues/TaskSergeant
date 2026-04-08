@@ -8,7 +8,7 @@ _TaskSergeant_ started as a project to task various remote Linux Systems in a fa
 
 In short, it is a tool to run multiple user-defined Python scripts (_Tasks_) in an user-defined hierarchy (_Pipeline_). Each _Task_ can receive inputs and have it's output be tested in an _Assertion_.
 
-It's original intent went as follows:
+Its original intent went as follows:
 
 - Run _TaskSergeant_ in a central server connected to the different systems accross the factory;
 - Clone itself on to those systems;
@@ -19,8 +19,6 @@ It's original intent went as follows:
 This was the initial use case and showcases the potential of this tool.
 
 This version has been stripped of its' Linux-specific features (mainly checking for which Linux distribution and Python version is currently running in the Host) and I currently use it on my Windows machine to run a few tasks now and again.
-
-**I have not used this version on Linux, so I'm not sure of it's viability.**
 
 ## What can I find in this project?
 

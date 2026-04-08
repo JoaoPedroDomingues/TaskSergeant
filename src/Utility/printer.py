@@ -87,8 +87,8 @@ class Printer():
     # @param exceptionMessage An exception's message
     #
     # @brief Custom output for subprocess.CalledProcessError exceptions
-    def subprocessException(self, taskId, exceptionMessage):
-        self.printMessage("An exception occured when executing a task with id '%s'.\nException Message: %s" %(taskId, exceptionMessage), 3)
+    def subprocessException(self, taskId, returnCode, exceptionMessage):
+        self.printMessage("An exception occured when executing a task with id '%s'.\nReturn code: %s\nException Message: %s" %(taskId, returnCode, exceptionMessage), 3)
 
     ##
     # @param self Printer instance
@@ -113,7 +113,7 @@ class Printer():
         else:
             msgType = "[OTHER]"
 
-        for line in message.split('\n'):
+        for line in str(message).split('\n'):
             print("%-11s %s" % (msgType, line))
 
     def getInput(self, message, mandatory=False):

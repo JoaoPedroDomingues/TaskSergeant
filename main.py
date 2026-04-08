@@ -85,14 +85,21 @@ if len(sys.argv) > 1:
             resultFlag = True
         elif arg == "-r": # -r flag for result-only log
             resultFlag = True
-        elif arg != "main.py":
+        elif "main.py" not in arg:
             inputFile = arg
+
+# Relocate the Working Directory at run time
+try:
+    os.chdir(os.path.dirname(__file__))
+    Printer.getInstance().printMessage("Current Working Directory has been changed to " + os.getcwd())
+except Exception:
+    pass
 
 # Create Printer instance
 Printer(resultFlag, debugFlag)
 Printer.getInstance().printMessage("A Printer instance has been created...")
 
-if inputFile == "":
+if inputFile == "" or inputFile is None:
     try:
         files = os.listdir("Inputs")
         for count, assertion in enumerate(files):
@@ -105,12 +112,6 @@ if inputFile == "":
     except:
         Printer.getInstance().printMessage("Something went wrong!", 2)
 
-# Relocate the Working Directory at run time
-try:
-    os.chdir(os.path.dirname(__file__))
-    Printer.getInstance().printMessage("Current Working Directory has been changed to " + os.getcwd())
-except Exception:
-    pass
 
 # Generate the system's mapping of the available Tasks and Assertions
 SuperProxy().genProxy()

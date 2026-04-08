@@ -168,3 +168,5 @@ p2pOutputs/
 run_script.bat
 
 src/Models/Tasks/UserCreated/
+
+requirements.txt

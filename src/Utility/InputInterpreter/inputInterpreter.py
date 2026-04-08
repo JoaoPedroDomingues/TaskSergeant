@@ -9,6 +9,8 @@ __interpreters = {
 
 def processInput(inputName):
 
+    Printer.getInstance().printMessage(f"Processing input file: {inputName}")
+
     _, fileExtension = os.path.splitext(inputName)
 
     interpreter = __interpreters.get(fileExtension, None)

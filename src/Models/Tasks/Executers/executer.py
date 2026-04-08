@@ -62,8 +62,8 @@ class Executer():
         try:
             result = subprocess.check_output(command, shell=True, timeout=self.__timeout).decode("utf-8")
         except subprocess.CalledProcessError as message:
-            Printer.getInstance().subprocessException(caller.id(), message)
+            Printer.getInstance().subprocessException(caller.id(), message.returncode, message.stderr)
         except subprocess.TimeoutExpired as message:
-            Printer.getInstance().subprocessException(caller.id(), message)
+            Printer.getInstance().subprocessException(caller.id(), message.returncode, message.stderr)
 
         return result
